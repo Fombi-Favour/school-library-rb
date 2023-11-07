@@ -1,8 +1,8 @@
 class Student < Person
   attr_accessor :classroom
 
-  def initialize(id, age, classroom, name = 'unknown', parent_permision: true)
-    super(id, name, age, parent_permision)
+  def initialize(age, classroom, name = 'unknown', parent_permision: true)
+    super(name, age, parent_permision)
     @classroom = classroom
   end
 
