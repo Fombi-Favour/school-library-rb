@@ -3,11 +3,11 @@ class Person < Nameable
   attr_accessor :name, :age
 
   # constructor
-  def initialize(age, name = 'unknown', parent_permision: true)
+  def initialize(age, name = 'Unknown', parent_permision: true)
     super()
     @id = Random.rand(1..1000)
-    @name = name
     @age = age
+    @name = name
     @parent_permision = parent_permision
   end
 
@@ -19,5 +19,10 @@ class Person < Nameable
 
   def can_use_services
     true if of_age? || @parent_permision
+  end
+
+  def correct_name
+    super
+    @name
   end
 end
