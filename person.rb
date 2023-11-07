@@ -1,15 +1,18 @@
 class Person
   attr_reader :id
   attr_accessor :name, :age
+
   # constructor
-  def initialize (id, name = "unknown", age, parent_permision = true)
+  def initialize(id, age, parent_permision, name = 'unknown')
     @id = id
     @name = name
     @age = age
     @parent_permision = parent_permision
   end
 
-  private def of_age?
+  private
+
+  def of_age?
     true if @age >= 18
   end
 
