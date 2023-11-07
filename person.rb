@@ -1,10 +1,11 @@
-class Person
+class Person < Nameable
   attr_reader :id
   attr_accessor :name, :age
 
   # constructor
-  def initialize(id, age, name = 'unknown', parent_permision: true)
-    @id = id
+  def initialize(age, name = 'unknown', parent_permision: true)
+    super()
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permision = parent_permision
