@@ -23,7 +23,6 @@ class Person < Nameable
   end
 
   def correct_name
-    super
     @name
   end
 
