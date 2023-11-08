@@ -1,3 +1,10 @@
+require_relative 'person'
+require_relative 'student'
+require_relative 'teacher'
+require_relative 'book'
+require_relative 'classroom'
+require_relative 'rental'
+
 class App
   # constructor
   def initialize
@@ -36,7 +43,7 @@ class App
       permission = true if %w[Yy].include?(permission)
       permission = false if %w[Nn].include?(permission)
 
-      @persons << Student.new(age, name, permission)
+      @persons << Student.new(age, permission, name)
     when 2
       print 'Specialization: '
       specialization = gets.chomp
@@ -91,7 +98,7 @@ class App
 
     puts 'Rentals:'
     person_rentals.each do |rentals|
-      puts "Date: #{rentals.date}, Book \"#{rentals.book}\" by #{rentals.author}"
+      puts "Date: #{rentals.date}, Book \"#{rentals.book.title}\" by #{rentals.book.author}"
     end
     @rentals
   end
