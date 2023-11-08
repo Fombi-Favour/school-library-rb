@@ -12,12 +12,4 @@ class Rental
     book.rentals << self
     person.rentals << self
   end
-
-  def book=(book)
-    book.add_rental(self)
-  end
-
-  def person=(person)
-    person.add_rental(self)
-  end
 end
