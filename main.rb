@@ -1,7 +1,7 @@
 require_relative 'app'
 
 app = App.new
-puts 'Welcome to School Library App!\n\n'
+puts "Welcome to School Library App!\n\n"
 
 loop do
   puts 'Please choose an option by enterin a number:'
@@ -12,6 +12,7 @@ loop do
   puts '5 - Create a rental'
   puts '6 - List all rentals for a given person id'
   puts '7 - Exit'
+  puts "\n"
 
   choice = gets.chomp.to_i
 
@@ -23,7 +24,7 @@ loop do
   when 5 then app.create_rental
   when 6 then app.list_rentals
   when 7
-    puts 'Thank you for using this app!\n'
+    puts "Thank you for using this app!\n\n"
     break
   end
 end
