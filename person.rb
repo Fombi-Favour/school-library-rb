@@ -1,5 +1,5 @@
 class Person < Nameable
-  attr_reader :id
+  attr_reader :id, :rentals
   attr_accessor :name, :age
 
   # constructor
@@ -9,6 +9,7 @@ class Person < Nameable
     @age = age
     @name = name
     @parent_permision = parent_permision
+    @rentals = []
   end
 
   private
@@ -24,5 +25,10 @@ class Person < Nameable
   def correct_name
     super
     @name
+  end
+
+  def add_rental(rental)
+    @rentals << rental
+    rental.person = self
   end
 end
