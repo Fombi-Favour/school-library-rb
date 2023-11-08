@@ -1,3 +1,5 @@
+require_relative 'app'
+
 app = App.new
 puts 'Welcome to School Library App!\n\n'
 
