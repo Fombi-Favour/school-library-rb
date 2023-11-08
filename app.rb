@@ -18,6 +18,7 @@ class App
     @books.each do |book|
       show_book(book)
     end
+    puts "\n"
   end
 
   # list all people
@@ -25,43 +26,44 @@ class App
     @persons.each do |person|
       show_person(person)
     end
+    puts "\n"
   end
 
   # create a person
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    print "Do you want to create a student (1) or a teacher (2)? [Input the number]: "
     choice_person = gets.chomp.to_i
-    print 'Age: '
+    print "Age: "
     age = gets.chomp.to_i
-    print 'Name: '
+    print "Name: "
     name = gets.chomp
 
     case choice_person
     when 1
-      print 'Has parent permission? [Y/N]: '
+      print "Has parent permission? [Y/N]: "
       permission = gets.chomp
       permission = true if %w[Yy].include?(permission)
       permission = false if %w[Nn].include?(permission)
 
       @persons << Student.new(age, permission, name)
     when 2
-      print 'Specialization: '
+      print "Specialization: "
       specialization = gets.chomp
 
       @persons << Teacher.new(age, specialization, name)
     end
-    puts 'Person created successfully'
+    puts "Person created successfully\n\n"
   end
 
   # create a book
   def create_book
-    print 'Title: '
+    print "Title: "
     title = gets.chomp
-    print 'Author: '
+    print "Author: "
     author = gets.chomp
 
     @books << Book.new(title, author)
-    puts 'Book created successfully'
+    puts "Book created successfully\n\n"
   end
 
   # create a rental
@@ -80,16 +82,16 @@ class App
     end
     person_index = gets.chomp.to_i
 
-    print 'Date: '
+    print "Date: "
     date = gets.chomp
 
     @rentals << Rental.new(date, @books[book_index], @persons[person_index])
-    puts 'Rental created successfully'
+    puts "Rental created successfully\n\n"
   end
 
   # list all rentals for a given person id
   def list_rentals
-    print 'ID of person: '
+    print "ID of person: "
     id = gets.chomp.to_i
 
     # find books rented by the person_id
@@ -100,7 +102,7 @@ class App
     person_rentals.each do |rentals|
       puts "Date: #{rentals.date}, Book \"#{rentals.book.title}\" by #{rentals.book.author}"
     end
-    @rentals
+    puts "\n"
   end
 
   # print a book
